@@ -1,0 +1,14 @@
+server:
+  port: 8181
+spring:
+  application:
+    name: trade-service
+  cloud:
+    config:
+      enabled: false
+eureka:
+  client:
+    enabled: true
+logging:
+  level:
+    org.springframework: DEBUG
