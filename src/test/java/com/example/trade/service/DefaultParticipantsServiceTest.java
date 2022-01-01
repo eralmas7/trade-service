@@ -1,24 +1,27 @@
 package com.example.trade.service;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import com.example.trade.service.DefaultIndexTradeInfoService;
 import com.example.trade.service.TradeInfo;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class DefaultParticipantsServiceTest {
 
 	private List<TradeInfo> tradeInfoList;
 
-	@Before
+	@BeforeEach
 	public void setup() {
 		this.tradeInfoList = new ArrayList<>();
 		tradeInfoList.add(new TradeInfo("Index001", "trade001", "desk001", 1000000, getDateAfter(52*7), getDateAfter(0), 18273.93));
@@ -30,7 +33,7 @@ public class DefaultParticipantsServiceTest {
 		return Date.from(LocalDate.now().plusYears(weeks).atStartOfDay(ZoneId.systemDefault()).toInstant());
 	}
 	
-	@After
+	@AfterEach
 	public void tearDown() {
 		this.tradeInfoList = null;
 	}
