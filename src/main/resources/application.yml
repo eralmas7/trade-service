@@ -11,4 +11,3 @@ eureka:
     enabled: true
     instance:
         hostname: ${vcap.services.eureka-service.credentials.uri:http://eureka-server:8761}/eureka/
-EUREKA_PORT_8761_TCP_ADDR: ${vcap.services.eureka-service.credentials.uri:localhost}
