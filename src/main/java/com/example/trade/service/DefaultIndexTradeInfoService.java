@@ -9,12 +9,13 @@ import java.util.stream.Collectors;
 
 public class DefaultIndexTradeInfoService implements IndexTradeInfoService {
 
-	private static List<TradeInfo> tradeInfoList = new ArrayList<TradeInfo>();
+	private static List<TradeInfo> tradeInfoList = new ArrayList<>();
 	
 	static{
-		tradeInfoList.add(new TradeInfo("Index001", "trade001", "desk001", 1000000, getDateAfter(52*7), getDateAfter(0), 18273.93));
-		tradeInfoList.add(new TradeInfo("Index001", "trade002", "desk001", 5000000, getDateAfter(52*3), getDateAfter(-1), 11273.93));
-		tradeInfoList.add(new TradeInfo("Index002", "trade003", "desk001", 75000000, getDateAfter(52*1), getDateAfter(0), 18273.93));
+		final String DESK = "desk001";
+		tradeInfoList.add(new TradeInfo("Index001", "trade001", DESK, 1000000, getDateAfter(52*7), getDateAfter(0), 18273.93));
+		tradeInfoList.add(new TradeInfo("Index001", "trade002", DESK, 5000000, getDateAfter(52*3), getDateAfter(-1), 11273.93));
+		tradeInfoList.add(new TradeInfo("Index002", "trade003", DESK, 75000000, getDateAfter(52*1), getDateAfter(0), 18273.93));
 	}
 
 	private static Date getDateAfter(int weeks) {

@@ -3,6 +3,9 @@ package com.example.trade.service;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 public interface IndexTradeInfoService {
 
 	public List<TradeInfo> getAllTradeInfo();
@@ -90,34 +93,22 @@ class TradeInfo {
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((indexId == null) ? 0 : indexId.hashCode());
-		result = prime * result + ((tradeId == null) ? 0 : tradeId.hashCode());
-		return result;
+		return new HashCodeBuilder()
+		        .append(indexId)
+		        .append(tradeId)
+		        .toHashCode();
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		TradeInfo other = (TradeInfo) obj;
-		if (indexId == null) {
-			if (other.indexId != null)
-				return false;
-		} else if (!indexId.equals(other.indexId))
-			return false;
-		if (tradeId == null) {
-			if (other.tradeId != null)
-				return false;
-		} else if (!tradeId.equals(other.tradeId))
-			return false;
-		return true;
+		if(obj instanceof TradeInfo){
+	        final TradeInfo other = (TradeInfo) obj;
+	        return new EqualsBuilder()
+	            .append(indexId, other.indexId)
+	            .append(tradeId, other.tradeId)
+	            .isEquals();
+	    } else{
+	        return false;
+	    }
 	}
-
-	
 }

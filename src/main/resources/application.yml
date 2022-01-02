@@ -5,7 +5,7 @@ spring:
     name: trade-service
   cloud:
     config:
-      enabled: false
+      uri:  ${vcap.services.config-server.credentials.uri:http://cloud-config:8888}
 eureka:
   client:
     enabled: true

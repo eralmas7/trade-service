@@ -1,8 +1,9 @@
 package com.example.trade.service;
 
 import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -13,12 +14,12 @@ public class IndexTradeController {
 	public IndexTradeController(IndexTradeInfoService indexTradeInfoService) {
 		this.indexTradeInfoService = indexTradeInfoService;
 	}
-	@RequestMapping("/")
+	@GetMapping("/")
 	public List<TradeInfo> getAllTradeInfo() {
 		return indexTradeInfoService.getAllTradeInfo();
 	}
 
-	@RequestMapping("/trade/{indexId}")
+	@GetMapping("/trade/{indexId}")
 	public List<TradeInfo> getTradeInfo(@PathVariable String indexId) {
 		return indexTradeInfoService.getTradeInfo(indexId);
 	}
