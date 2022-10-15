@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface IndexTradeInfoService {
 
-	public List<TradeInfo> getAllTradeInfo();
+    public List<TradeInfo> getAllTradeInfo();
 
-	public List<TradeInfo> getTradeInfo(String indexId);
+    public List<TradeInfo> getTradeInfo(String indexId);
 }
